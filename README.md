@@ -63,6 +63,7 @@ Most of the scripts use the Bourne shell (`sh`) and the standard `awk` (actually
 * `genline` is a handy script that appends new cards generated from its parameters to the specified deck.  It automatically generates the cards' unique IDs and adds blank rubi annotations for kanji (Chinese) characters via `rubify`.
 * `reviewsome` is the driver behind `reviewsentences` and `reviewkanji`.  It uses SM-2 to select flashcards from the specified deck and sets up a local HTTP server on port 1337 to review them.  It requires a "filter program" to transform `oboeta`'s output into suitable lines for `oboetahttp`.  Honden has two filters, `filterkanji` and `filtersentences`, for kanji decks and Japanese sentence decks, respectively.  `reviewkanji` and `reviewsentences` set all of this up for you assuming that you have decks named "kanji" and "sentences".
 * `seesome` is identical to `reviewsome` but does not log review results.
+* `reviewclozes` is like `reviewsentences` but it generates and reviews cloze deletions from the answer (back) fields of a sentence deck.
 
 NOTE: Some of the Japanese-specific scripts depend on [Hinomoto](https://github.com/joodan-van-github/hinomoto), a small collection of programs for parsing and tagging Unicode text.  Of course, you can remove these dependencies.
 

@@ -29,5 +29,5 @@ mkdir -p -m 0755 $1/other
 
 echo "Installing scripts"
 set -x
-install backupall backupcards carddate downloadsds edeck filterkanji filtersentences genkanjicards genline getsds logdate newdeck nextid reviewkanji reviewsentences reviewsome rubify seedeck seesome $1
+install backupall backupcards carddate downloadsds edeck filterkanji filtersentences genkanjicards genline getsds logdate newdeck nextid reviewclozes reviewkanji reviewsentences reviewsome rubify seedeck seesome $1
 
