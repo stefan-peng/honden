@@ -11,9 +11,6 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-# This script assumes that the cloze annotations are in the answer fields
-# (backs) of the sentence flashcards.
-
 usage() {
   echo "Usage: `basename $0` [-h] deck-name-no-extension"
 }
@@ -34,12 +31,10 @@ trap cleanup EXIT INT
 mkfifo -m 0700 $cpipe
 
 touch decks/$1.clozes.log
-cut --complement -f 1 decks/$1.txt | ocloze | osm2 -n 30 -e 10 decks/$1.clozes.log | rubify | oboeta -2 $cpipe decks/$1.clozes.log | gawk '
+cut --complement -f 1 decks/$1.txt | ocloze | osm2 -n 30 -e 10 decks/$1.clozes.log | rubify | oboeta -2 $cpipe decks/$1.clozes.log | gawk -F'	' '
 {
-	for (n = 1; n <= NF - 5; n++) {
-		printf("%s\t", $n)
-	}
-	printf("%s\n", $(NF - 4))
+	print $4
+	print $(NF-4)
 	system("")
-}' | filtersentences | oboetahttp -2 -n '\"HanaMinA\", sans-serif' -i 48 >$cpipe 
+}' | oboetahttp -2 -n '\"HanaMinA\", sans-serif' -i 48 >$cpipe 
 
