@@ -43,7 +43,6 @@ EOF
 . config.txt
 touch $DECK $LOG
 mkdir -p -m 0755 backups
-mkdir -p -m 0755 media/recordings
-mkdir -p -m 0755 media/sds
+mkdir -p -m 0755 media
 mkdir -p -m 0755 other
 

@@ -29,25 +29,11 @@ Assuming `.` contains `config.txt`, the directory hierarchy looks like this:
         backupall and backupcards.  These are bzipped
         TARs (.tar.bz2).
       media/
-        recordings/
-          flashcards/
-            This directory contains recordings of flashcards.
-            Each recording's name is the integral ID of the
-            associated flashcard followed by the .wav
-            extension.  If there are multiple recordings for
-            a single flashcard, then the first one is named
-            as just mentioned, whereas subsequent recordings'
-            names are the flashcard's unique ID followed by
-            ".N", where N is the recording's zero-based index,
-            and the .wav extension.
-        sds/
-          This directory contains Chinese character stroke
-          order diagrams.  Each file's name is the character
-          that the file describes followed by an image extension.
-          Right now, all of my diagrams are PNGs.
-      other/
-        This directory contains miscellaneous data.  Honden
+        This directory contains media files.  Honden
         ignores it.
+      other/
+        This directory contains miscellaneous data.
+        Honden ignores it.
 
 ## The Scripts
 
