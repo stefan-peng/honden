@@ -11,7 +11,8 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-cat decks/*.txt decks/*.log | awk 'BEGIN { max = 0; }
+. config.txt
+cat $DECK $LOG | awk 'BEGIN { max = 0; }
 { val = int($1); if (val > max) { max = val; } }
 END { print max + 1 }'
 

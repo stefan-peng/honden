@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Edit the Specified Deck with Your Favorite Text Editor
+# Edit the Deck
 # Written in 2012 by 伴上段
 #
 # To the extent possible under law, the author(s) have dedicated all copyright
@@ -11,17 +11,6 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-usage() {
-  echo "Usage: `basename $0` [-h] deck-name-no-extension"
-}
-
-if [ $# -ne 1 ]; then
-  usage >&2
-  exit 1
-elif [ "$1" = "-h" ]; then
-  usage
-  exit 0
-fi
-
-leafpad decks/$1.txt
+. config.txt
+exec $EDITOR $DECK
 

@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/gawk -f
 
-# Review Kanji Flashcards over HTTP
+# Transform Flashcard Lines into Readable Forms for the HTTP Server
 # Written in 2012 by 伴上段
 #
 # To the extent possible under law, the author(s) have dedicated all copyright
@@ -11,5 +11,6 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-reviewsome kanji filterkanji
+BEGIN { FS = "	"; OFS = "	" }
+{ print $1, $3; print $4; system("") }
 

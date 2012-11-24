@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Review Sentence Flashcards over HTTP
+# Review Cards over HTTP
 # Written in 2012 by 伴上段
 #
 # To the extent possible under law, the author(s) have dedicated all copyright
@@ -11,5 +11,14 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-reviewsome sentences filtersentences
+. config.txt
+
+cpipe=reviewsome.$$.command
+cleanup() {
+  rm -f $cpipe
+}
+trap cleanup EXIT INT
+mkfifo -m 0700 $cpipe
+
+osm2 -n $NUM_OLD -e $NUM_NEW $LOG <$DECK | $INPUTFILTER | oboeta -2 $cpipe $LOG | $OUTPUTFILTER | oboetahttp -2 -n $FONT_FACE -i $FONT_SIZE >$cpipe
 

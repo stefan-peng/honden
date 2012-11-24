@@ -12,22 +12,14 @@
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 if [ $# -eq 0 ]; then
-  echo "ERROR: No installation directory specified.  Please specify it as the first command-line argument for this script." >&2
+  echo "no installation directory specified" >&2
   exit 1
 fi
 if [ ! -d "$1" ]; then
-  echo "ERROR: $1 is not a directory." >&2
+  echo "$1 is not a directory." >&2
   exit 1
 fi
 
-echo "Creating directory hierarchy"
-mkdir -p -m 0755 $1/backups
-mkdir -p -m 0755 $1/decks
-mkdir -p -m 0755 $1/media/recordings/flashcards/ロー
-mkdir -p -m 0755 $1/media/sds
-mkdir -p -m 0755 $1/other
-
-echo "Installing scripts"
 set -x
-install backupall backupcards carddate downloadsds edeck filterkanji filtersentences genkanjicards genline getsds logdate newdeck nextid reviewclozes reviewkanji reviewsentences reviewsome rubify seedeck seesome $1
+install backupall backupcards defaultfilter edeck genline honden nextid review seedeck $1
 

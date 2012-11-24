@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# Create a Honden Deck and Directory Hierarchy
+# Written in 2012 by 伴上段
+#
+# To the extent possible under law, the author(s) have dedicated all copyright
+# and related and neighboring rights to this software to the public domain
+# worldwide. This software is distributed without any warranty.
+#
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software. If not, see
+# <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+cat >config.txt <<EOF
+# Honden Configuration File
+
+# the deck file (CSV using tabs) and its associated log file (also CSV using tabs)
+DECK=deck.txt
+LOG=deck.log
+
+# review limits (max new cards and max old cards)
+NUM_NEW=20
+NUM_OLD=40
+
+# HTML font properties: CSS font face list and font size, including units
+FONT_FACE='serif'
+FONT_SIZE=48pt
+
+# programs that transform oboeta input and output
+INPUTFILTER=cat
+OUTPUTFILTER=defaultfilter
+
+# timestamp generators (one for flashcards and one for log entries)
+CARDDATE="date +%Y年%m月%d日%H時%M分"
+LOGDATE="date +%Y年%m月%d日"
+
+# your favorite text editor and text viewer
+EDITOR=vim
+VIEWER=less
+
+EOF
+
+. config.txt
+touch $DECK $LOG
+mkdir -p -m 0755 backups
+mkdir -p -m 0755 media/recordings
+mkdir -p -m 0755 media/sds
+mkdir -p -m 0755 other
+
