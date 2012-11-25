@@ -14,7 +14,8 @@
 cat >config.txt <<EOF
 # Honden Configuration File
 
-# the deck file (CSV using tabs) and its associated log file (also CSV using tabs)
+# the deck file (CSV using tabs) and its associated log file (also CSV
+# using tabs)
 DECK=deck.txt
 LOG=deck.log
 
@@ -25,6 +26,10 @@ NUM_OLD=40
 # HTML font properties: CSS font face list and font size, including units
 FONT_FACE='serif'
 FONT_SIZE=48pt
+
+# program that transforms genline parameters (the front sides of the new cards)
+# into suitable answers (the back sides of the new cards)
+GENLINEFILTER=cat
 
 # programs that transform oboeta input and output
 INPUTFILTER=cat
