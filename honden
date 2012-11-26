@@ -35,9 +35,15 @@ GENLINEFILTER=cat
 INPUTFILTER=cat
 OUTPUTFILTER=defaultfilter
 
-# timestamp generators (one for flashcards and one for log entries)
+# egrep regex matching filenames/paths from find(1) that should be excluded from
+# backups (all paths start with "./")
+BACKUPEXCLUSION='^\./((backups)|(other))(/|$)'
+
+# timestamp generators (one for flashcards, one for log entries, and one
+# for backup archive names)
 CARDDATE="date +%Y年%m月%d日%H時%M分"
 LOGDATE="date +%Y年%m月%d日"
+BACKUPDATE="date +%Y年%m月%d日%H時%M分%S秒"
 
 # your favorite text editor and text viewer
 EDITOR=vim

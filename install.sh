@@ -21,5 +21,5 @@ if [ ! -d "$1" ]; then
 fi
 
 set -x
-install backupall backupcards defaultfilter edeck genline honden nextid review seedeck $1
+install backupcards defaultfilter edeck genline honden nextid review seedeck $1
 
