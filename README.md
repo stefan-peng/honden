@@ -26,8 +26,7 @@ Assuming `.` contains `config.txt`, the directory hierarchy looks like this:
     ./
       backups/
         This directory contains backup archives created by
-        backupall and backupcards.  These are bzipped
-        TARs (.tar.bz2).
+        backupcards.  These are bzipped TARs (.tar.bz2).
       media/
         This directory contains media files.  Honden
         ignores it.
@@ -39,7 +38,7 @@ Assuming `.` contains `config.txt`, the directory hierarchy looks like this:
 
 Most of the scripts use the Bourne shell (`sh`), `gawk`, `date`, `sort`, and `uniq` utilities.  All of them should be easy to understand: Open them with your favorite text editor to check them out.  Here's a high-level overview of the most important ones:
 
-* `backupall` and `backupcards` back up all files or just cards, respectively, to the `backups` directory.
+* `backupcards` backs up all files not excluded by the configurable `$BACKUPEXCLUSION` regex filter to the `backups` directory.
 * `edeck` edits the deck with your favorite text editor.
 * `seedeck` views the deck with your favorite viewer.
 * `nextid` scans the decks and its log file for the next unique integral flashcard ID.
